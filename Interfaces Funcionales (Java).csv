@@ -1,0 +1,23 @@
+Interfaz Funcional,"Es una interfaz que contiene sólo un método abstracto. Son cruciales para la programación funcional en Java, ya que permiten pasar algún comportamiento como argumento.
+Simplifican el código, permitiendo utilizar un lambda en lugar de una función anónima."
+Características de la Interfaz Funcional,"- (SAM) Single Abstract Method: Sólo deben tener un método abstracto.
+- Anotación @FunctionalInterface: Aunque es opcional, esta anotación es usada para indicar que la intención de la interfaz es ser una interfaz funcional."
+¿Qué función tiene la anotación @functionalInterface?,"Sólo permite que la interfaz tenga un método abstracto. Si se añade algo más, el compilador notará esto como un error."
+Predicate<T>,"Es una interfaz funcional en Java. Toma un argumento simple y regresa un booleano.
+Ejemplo:
+Predicate<String> isLong = str -> str.lenght() > 5;"
+"Function<T,R>","Es una interfaz funcional en Java. Toma un sólo argumento y regresa un tipo diferente.
+Ejemplo:
+Function<String,Integer> stringLenght = str -> str.lenght();"
+Consumer<T>,"Es una interfaz funcional en Java. Toma sólo un argumento y no regresa resultado (utilizado en operaciones como print)
+Ejemplo:
+Consumer<String> pringString = str -> System.out.println(str);"
+Supplier<T>,"Es una interfaz funcional en Java. No toma argumentos y regresa un valor.
+Ejemplo:
+Supplier<String> generateMessage = () -> ""Hello World"";"
+UnaryOperator<T>,"Es una interfaz funcional en Java. Sólo toma un argumento y regresa un valor del mismo tipo.
+Ejemplo:
+UnaryOperator<Integer> square = x -> x*x;"
+BinaryOperator<T>,"Es una interfaz funcional en Java. Toma dos argumentos y regresa un valor del mismo tipo.
+Ejemplo:
+BinaryOperator<Integer> add = (a,b) -> a+b;"

@@ -1,0 +1,53 @@
+¿Qué es un stream?,Es una API que nos permite procesar colecciones de objetos
+¿Que caracterísicas tienen los streams (Java)?,"- No son estructuras de datos, toma como input Collections, Arrays e I/O Channels.
+- Cada operación intermedia es ejecutada de manera ""perezosa"" y regresa un stream como resultado, así que cada ejecución se puede recorrer una tras otra.
+- Las operaciones finales, finalizan el stream, retornando el resultado."
+¿Qué tipos de operaciones existen en los streams?,"1.- Operaciones intermedia (intermediate).
+2.- Operaciones finales (terminate)."
+¿Qué caracterísicas tienen las operaciones intermedias (stream Java)?,"- Los métodos pueden encadenarse (pipelined).
+- Transforman un stream en otro stream.
+- Permiten el concepto de ""filtrado (fltering)"", donde un método filtra la data y lo pasa a un nuevo método una vez procesado."
+¿Qué beneficios tiene las operaciones intermedias (Java Stream)?,"- No almacenan data
+- Funciones encadenadas (pipeline functions)
+- Perezosidad (laziness)
+- Pueden ser infinitas
+- Pueden paralelizarse
+- Se pueden crear de Collections, Arrays, File Lines, Methods in stream, IntStream, etc."
+.map(),"Es una operación intermedia de los Java Streams. Se utiliza para retornar un stream, que es resultado de una función dada.
+Sintaxis:
+<R>Stream<R> map(function <? super T, ? extends R> mapper)"
+.filter(),"Es una operación intermedia de los Java Streams. Se utiliza para seleccionar elementos según el predicado que se pasa como argumento.
+Sintaxis:
+Stream<T> filter(Predicate<? super T> predicate)"
+.sorted(),"Es una operación intermedia de los Java Streams. Es utilizado para ordenar los objetos del stream.
+Sintaxis:
+Stream<T> sorted()
+Stream<T> sorted(Comparator<? super T> comparator)"
+.flatMap(),"Es una operación intermedia de los Java Streams. Usado para ""aplanar (flatten)"" un stream de colecciones dentro de un solo stream."
+.distinct(),Es una operación intermedia de los Java Streams. Usado para eliminar elementos duplicados. Retorna una lista de stream con elementos únicos.
+.peek(),"Realiza una acción sobre cada elemento sin modificar los datos del stream. Retorna un stream de los elementos consistentes del stream, adicionando la acción requerida en cada elemento de los elementos que se consumieron en el stream.
+Sintaxis:
+Stream<T> peek(Consumer<T> super T> action)"
+Operaciones Finales (Java Stream),Son un tipo de operación que regresarán un resultado. Se realizan sólo al final para retornar un resultado y cerrar el stream.
+.collect(),"Es una operación final(terminate) de los Java Streams. Retorna el resultado de las operaciones intermedias.
+<R,A> R collect(Collector<? super T,A,R> collector)"
+.forEach(),"Es una operación final(terminate) de los Java Streams. Utilizado para iterar por cada uno de los elementos del stream.
+Sintaxis:
+void forEach(Consumer<? super T> action)"
+.reduce(),"Es una operación final(terminate) de los Java Streams. Utilizado para reducir los elementos del stream a un único valor. El método toma un operador binario como parámetro.
+Sintaxis:
+T reduce(T identity, BinaryOperation<T> accumulator)
+Optional<T> reduce(BinaryOperator<T> accumulator)"
+.count(),"Es una operación final(terminate) de los Java Streams. Retorna la cantidad de elementos en el stream.
+Sintaxis:
+Long count()"
+.findFirst(),"Es una operación final(terminate) de los Java Streams. Retorna el primer valor del Stream, si está presente.
+Sintaxis:
+Optional<T> findFirst()"
+.allMatch(),"Es una operación final(terminate) de los Java Streams. Verifica si los elementos del stream hacen match con el predicado dado.
+Sintaxis:
+boolean allMatch(Predicate<? super T> predicate)"
+.anyMatch(),"Es una operación final(terminate) de los Java Streams. Verifica si alguno los elementos del stream hace match con el predicado dado.
+boolean anyMatch(Predicate<? super T> predicate)"
+¿Qué consideraciones debe tener un stream (Java)?,"1.- Consisten en un recurso, seguido de 0 o más operaciones intermedias y un método final para procesar los objetos.
+2.- Se utiliza para procesar objetos sin alterar el resultado final."
